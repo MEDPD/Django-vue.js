@@ -1,0 +1,27 @@
+
+
+{% extends 'todo/index.html' %}
+{% block body %}
+{% load static %}
+     <div id="root">
+        <div>
+                <p v-for="todo in todos" >
+                   [[todo.fields.todo]]     
+                  <button @click="deleteTodo(todo.pk)">delete</button>
+                </p>
+                
+        </div>
+             <form @submit.prevent="onSubmit">
+                <input type="text" name="newTodo" v-model="form.todo_i" >
+                <input type="text" name="desc" id="" v-model="form.prop">
+                <button>add</button>
+             </form>
+              
+        <div>
+               
+        </div>
+     </div>
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+     <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+     <script src="{% static 'vuejs/main.js' %}"></script>
+     {% endblock %}
